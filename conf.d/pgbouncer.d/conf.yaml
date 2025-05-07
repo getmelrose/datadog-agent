@@ -2,7 +2,7 @@ init_config:
 
 instances:
   - host: prod-pgbouncer-xuul
-    port: 6432
+    port: 5432
     username: datadog
     password: ""   # if required
     tags:
