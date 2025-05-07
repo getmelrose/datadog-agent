@@ -1,5 +1,7 @@
 FROM datadog/agent:7
 
+COPY conf.d/pgbouncer.d /etc/datadog-agent/conf.d/pgbouncer.d
+
 # disable autoconfigured checks; DD container checks
 # do not work as-is on Render since there's no access
 # to Kubelet/kube-state-metrics.
