@@ -16,6 +16,7 @@ class PgBouncerClientsCheck(AgentCheck):
             host=host,
             port=port
         )
+        conn.autocommit = True  # ✅ Required for PgBouncer admin DB
         cur = conn.cursor()
         cur.execute("SHOW CLIENTS;")
         rows = cur.fetchall()
