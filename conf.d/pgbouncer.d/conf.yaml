@@ -4,7 +4,7 @@ instances:
   - host: prod-pgbouncer-xuul
     port: 5432
     username: datadog
-    password: ""   # if required
+    password: datadawgpass123   # if required
     tags:
       - env:production
       - service:pgbouncer
@@ -12,7 +12,7 @@ instances:
   - host: staging-pgbouncer-s0rr
     port: 5432
     username: datadog
-    password: ""   # if required
+    password: datadawgpass123   # if required
     tags:
       - env:staging
       - service:pgbouncer
