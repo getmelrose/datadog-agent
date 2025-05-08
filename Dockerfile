@@ -2,6 +2,12 @@ FROM datadog/agent:7
 
 COPY conf.d/pgbouncer.d /etc/datadog-agent/conf.d/pgbouncer.d
 
+# Custom check script
+COPY checks.d/pgbouncer_clients.py /etc/datadog-agent/checks.d/pgbouncer_clients.py
+
+# Custom check config
+COPY conf.d/pgbouncer_clients.d /etc/datadog-agent/conf.d/pgbouncer_clients.d
+
 # disable autoconfigured checks; DD container checks
 # do not work as-is on Render since there's no access
 # to Kubelet/kube-state-metrics.

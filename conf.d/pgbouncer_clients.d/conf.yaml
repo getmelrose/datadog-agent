@@ -1,0 +1,18 @@
+init_config:
+
+instances:
+  - host: prod-pgbouncer-xuul
+    port: 5432
+    username: datadog
+    password: datadawgpass123
+    tags:
+      - env:production
+      - service:pgbouncer
+
+  - host: staging-pgbouncer-s0rr
+    port: 5432
+    username: datadog
+    password: datadawgpass123
+    tags:
+      - env:staging
+      - service:pgbouncer
