@@ -8,6 +8,9 @@ COPY checks.d/pgbouncer_clients.py /etc/datadog-agent/checks.d/pgbouncer_clients
 # Custom check config
 COPY conf.d/pgbouncer_clients.d /etc/datadog-agent/conf.d/pgbouncer_clients.d
 
+# HTTP health checks for services
+COPY conf.d/http_check.d /etc/datadog-agent/conf.d/http_check.d
+
 # disable autoconfigured checks; DD container checks
 # do not work as-is on Render since there's no access
 # to Kubelet/kube-state-metrics.
