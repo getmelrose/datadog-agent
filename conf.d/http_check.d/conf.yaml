@@ -1,0 +1,40 @@
+init_config:
+
+instances:
+  # TMS Service health checks (liveness)
+  - name: tms-service-healthz-prod
+    url: http://production-tms-service:3000/api/v1/healthz
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:tms-service
+      - env:production
+      - check:liveness
+
+  - name: tms-service-healthz-staging
+    url: http://staging-tms-service:3000/api/v1/healthz
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:tms-service
+      - env:staging
+      - check:liveness
+
+  # TMS Service readiness checks
+  - name: tms-service-readyz-prod
+    url: http://production-tms-service:3000/api/v1/readyz
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:tms-service
+      - env:production
+      - check:readiness
+
+  - name: tms-service-readyz-staging
+    url: http://staging-tms-service:3000/api/v1/readyz
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:tms-service
+      - env:staging
+      - check:readiness
