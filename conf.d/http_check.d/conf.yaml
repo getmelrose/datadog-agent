@@ -38,3 +38,22 @@ instances:
       - service:tms-service
       - env:staging
       - check:readiness
+
+  # Longbeach Backend health checks
+  - name: longbeach-backend-health-prod
+    url: http://longbeach-backend:10000/health
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:longbeach-backend
+      - env:production
+      - check:liveness
+
+  - name: longbeach-backend-health-staging
+    url: http://longbeach-staging-backend:10000/health
+    http_response_status_code: 200
+    timeout: 10
+    tags:
+      - service:longbeach-backend
+      - env:staging
+      - check:liveness
